@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Harisoni Ami Lohay | GIS &amp; Remote Sensing Portfolio</title>
+	<meta name="description" content="Portfolio of Harisoni Ami Lohay, a GIS and Remote Sensing undergraduate at Ardhi University, Tanzania. Spatial analysis, cartography, Earth observation and web GIS." />
+	<meta name="author" content="Harisoni Ami Lohay" />
+	<meta name="theme-color" content="#0a1224" />
+	<meta property="og:title" content="Harisoni Ami Lohay | GIS &amp; Remote Sensing Portfolio" />
+	<meta property="og:description" content="GIS and Remote Sensing undergraduate at Ardhi University, Tanzania." />
+	<meta property="og:type" content="website" />
+
+	<!-- Leaflet (requires internet) -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+				integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to main content</a>
+
+	<!-- A. NAVIGATION -->
+	<header class="site-header" id="top">
+		<nav class="nav container" aria-label="Main navigation">
+			<a class="logo" href="#home" aria-label="HAL.GEO home">HAL<span>.GEO</span></a>
+			<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</button>
+			<ul class="nav-links" id="navLinks">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#map">Interactive Map</a></li>
+				<li><a href="#cv">CV</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="main">
+
+		<!-- B. HERO -->
+		<section class="hero" id="home" aria-labelledby="hero-title">
+			<div class="hero-bg" aria-hidden="true"></div>
+			<div class="container hero-inner">
+				<p class="eyebrow">GIS &amp; Remote Sensing · Ardhi University · Tanzania</p>
+				<h1 id="hero-title">Turning Spatial Data into <span class="grad">Meaningful Insights.</span></h1>
+				<p class="lead">
+					I'm Harisoni Ami Lohay, a GIS &amp; Remote Sensing undergraduate at Ardhi University (ARU),
+					learning to turn satellite imagery and spatial data into clear maps and useful analysis.
+				</p>
+				<div class="btn-row">
+					<a class="btn btn-primary" href="#projects">Explore Projects</a>
+					<a class="btn btn-ghost" href="#about">About Me</a>
+					<a class="btn btn-ghost" href="#cv">Download CV</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- C. ABOUT -->
+		<section class="section" id="about" aria-labelledby="about-title">
+			<div class="container">
+				<h2 id="about-title" class="section-title"><span>01</span> About Me</h2>
+				<div class="about-grid">
+					<div class="about-text">
+						<!-- EDIT: rewrite these paragraphs in your own words -->
+						<p>
+							I'm an undergraduate student pursuing a Bachelor of Science in GIS &amp; Remote Sensing at
+							Ardhi University in Tanzania. My studies combine geography, mapping, satellite image
+							interpretation and spatial data analysis.
+						</p>
+						<p>
+							I'm especially interested in spatial analysis, digital cartography, geospatial programming,
+							photogrammetry, web GIS and Earth observation. I enjoy the process of taking raw spatial
+							data and turning it into something people can understand and act on.
+						</p>
+						<p>
+							I'm still early in my journey and learning with every project. My goal is to grow into a
+							professional GIS and Remote Sensing specialist, building skills in geospatial data science
+							and sharing my work openly as I go.
+						</p>
+					</div>
+					<aside class="about-card" aria-label="Quick facts">
+						<h3>Quick facts</h3>
+						<dl>
+							<dt>Name</dt><dd>Harisoni Ami Lohay</dd>
+							<dt>Degree</dt><dd>BSc in GIS &amp; Remote Sensing</dd>
+							<dt>University</dt><dd>Ardhi University (ARU)</dd>
+							<dt>Level</dt><dd>Undergraduate</dd>
+							<dt>Location</dt><dd>Tanzania, East Africa</dd>
+						</dl>
+					</aside>
+				</div>
+			</div>
+		</section>
+
+		<!-- D. SKILLS -->
+		<section class="section alt" id="skills" aria-labelledby="skills-title">
+			<div class="container">
+				<h2 id="skills-title" class="section-title"><span>02</span> Technical Skills</h2>
+				<p class="section-intro">
+					Tools and methods I'm studying or using. Each card has an editable level note.
+					<!-- EDIT: change the "level" text on each card to honestly describe where you are. -->
+				</p>
+				<div class="skills-grid">
+
+					<article class="card skill-card">
+						<h3>GIS &amp; Cartography</h3>
+						<ul class="tags"><li>QGIS</li><li>ArcGIS</li><li>Spatial visualization</li><li>Map design</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT: e.g. Learning / Comfortable with basics]</em></p>
+					</article>
+
+					<article class="card skill-card">
+						<h3>Remote Sensing</h3>
+						<ul class="tags"><li>Landsat</li><li>Satellite imagery</li><li>Image classification</li><li>NDVI</li><li>Land-cover change</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT]</em></p>
+					</article>
+
+					<article class="card skill-card">
+						<h3>Geospatial Programming</h3>
+						<ul class="tags"><li>Python</li><li>R</li><li>Google Earth Engine</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT]</em></p>
+					</article>
+
+					<article class="card skill-card">
+						<h3>Spatial Analysis</h3>
+						<ul class="tags"><li>Raster analysis</li><li>Distance analysis</li><li>Suitability modelling</li><li>Accessibility mapping</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT]</em></p>
+					</article>
+
+					<article class="card skill-card">
+						<h3>Photogrammetry &amp; Terrain</h3>
+						<ul class="tags"><li>DEM</li><li>DSM</li><li>Orthomosaics</li><li>Terrain modelling</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT]</em></p>
+					</article>
+
+					<article class="card skill-card">
+						<h3>Spatial Databases &amp; Web GIS</h3>
+						<ul class="tags"><li>PostgreSQL</li><li>PostGIS</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Interactive mapping</li></ul>
+						<p class="level">Level: <em class="editable">[EDIT]</em></p>
+					</article>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- E. PROJECTS -->
+		<section class="section" id="projects" aria-labelledby="projects-title">
+			<div class="container">
+				<h2 id="projects-title" class="section-title"><span>03</span> Projects Portfolio</h2>
+				<p class="section-intro">
+					These are my planned portfolio categories. Cards marked <strong>Placeholder</strong> are not
+					completed projects yet; real maps and results will replace them as I finish my work.
+				</p>
+				<div class="filters" id="projectFilters" role="group" aria-label="Filter projects by category">
+					<!-- Filter buttons are generated by script.js -->
+				</div>
+				<div class="projects-grid" id="projectsGrid" aria-live="polite">
+					<!-- Project cards are generated by script.js -->
+				</div>
+				<noscript><p class="notice">Please enable JavaScript to view the project gallery.</p></noscript>
+			</div>
+		</section>
+
+		<!-- Project detail dialog -->
+		<dialog id="projectDialog" class="dialog" aria-labelledby="dlgTitle">
+			<div class="dialog-inner">
+				<button class="dialog-close" id="dialogClose" aria-label="Close project details">&times;</button>
+				<div id="dialogBody"><!-- filled by script.js --></div>
+			</div>
+		</dialog>
+
+		<!-- F. INTERACTIVE MAP -->
+		<section class="section alt" id="map" aria-labelledby="map-title">
+			<div class="container">
+				<h2 id="map-title" class="section-title"><span>04</span> Interactive Web GIS Map</h2>
+				<p class="section-intro">
+					A Leaflet map centred on Dar es Salaam. The marker below is a <strong>demonstration marker</strong>
+					only, not verified project data. Study areas can be added later as GeoJSON (see README).
+					This section needs an internet connection to load map tiles.
+				</p>
+				<div class="map-controls">
+					<label for="basemapSelect">Basemap:</label>
+					<select id="basemapSelect">
+						<option value="osm">OpenStreetMap</option>
+						<option value="sat">Esri World Imagery (satellite)</option>
+					</select>
+					<span id="mapStatus" class="map-status" role="status" aria-live="polite">Loading map…</span>
+				</div>
+				<div id="webmap" class="webmap" role="region" aria-label="Interactive map of Dar es Salaam"></div>
+				<p class="small">
+					Map data © OpenStreetMap contributors. Satellite imagery © Esri, Maxar, Earthstar Geographics and
+					the GIS User Community; subject to Esri's terms of use.
+				</p>
+			</div>
+		</section>
+
+		<!-- G. EDUCATION & EXPERIENCE -->
+		<section class="section" id="education" aria-labelledby="edu-title">
+			<div class="container">
+				<h2 id="edu-title" class="section-title"><span>05</span> Education &amp; Experience</h2>
+				<ol class="timeline">
+					<li>
+						<h3>BSc in GIS &amp; Remote Sensing</h3>
+						<p>Ardhi University (ARU), Tanzania</p>
+						<p class="meta">Undergraduate · <em class="editable">2024 – 2027]</em></p>
+					</li>
+				</ol>
+
+				<div class="edit-grid">
+					<article class="card"><h3>Relevant Coursework</h3><p class="editable">[EDIT: list real courses you have taken]</p></article>
+					<article class="card"><h3>Academic Projects</h3><p class="editable">[EDIT: add completed academic projects]</p></article>
+					<article class="card"><h3>Fieldwork</h3><p class="editable">[EDIT: add field courses or surveys]</p></article>
+					<article class="card"><h3>Internships</h3><p class="editable">[EDIT: add if applicable]</p></article>
+					<article class="card"><h3>Volunteering</h3><p class="editable">[EDIT: add if applicable]</p></article>
+					<article class="card"><h3>Certificates</h3><p class="editable">[EDIT: add only certificates you hold]</p></article>
+					<article class="card"><h3>Future Experience</h3><p class="editable">[EDIT: roles and opportunities you are working toward]</p></article>
+				</div>
+			</div>
+		</section>
+
+		<!-- H. CV -->
+		<section class="section alt" id="cv" aria-labelledby="cv-title">
+			<div class="container cv-box">
+				<h2 id="cv-title" class="section-title"><span>06</span> Curriculum Vitae</h2>
+				<p class="section-intro">
+					Download my CV as a PDF.
+				</p>
+				<a class="btn btn-primary" id="cvButton" href="assets/documents/Harisoni_Lohay_CV.pdf" download>Download CV (PDF)</a>
+				<p id="cvMessage" class="notice" role="status" hidden></p>
+				<details class="how-to">
+					<summary>Owner note: how to add your CV</summary>
+					<p>Save your CV as <code>Harisoni_Lohay_CV.pdf</code> inside <code>assets/documents/</code>. The button
+					above will then work. Until the file exists, the button shows a message instead of a broken download.</p>
+				</details>
+			</div>
+		</section>
+
+		<!-- I. CONTACT -->
+		<section class="section" id="contact" aria-labelledby="contact-title">
+			<div class="container">
+				<h2 id="contact-title" class="section-title"><span>07</span> Contact</h2>
+				<p class="section-intro">
+					Contact details will be added here. A working contact form needs a backend or an external
+					service, so none is included yet (options are explained in the README).
+				</p>
+				<ul class="contact-list">
+					<!-- EDIT: replace each placeholder with real details. Add href only when real. -->
+					<li><strong>Professional email:</strong> <span class="editable" id="contactEmail">lohayharisoni445@gmail.com</span></li>
+					<li><strong>LinkedIn:</strong> <span class="editable" id="contactLinkedin">harisoni-lohay-143839446</span></li>
+					<li><strong>GitHub:</strong> <span class="editable" id="contactGithub">[EDIT: GitHub profile URL]</span></li>
+					<li><strong>Other (optional):</strong> <span class="editable">[EDIT]</span></li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<!-- J. FOOTER -->
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p>© <span id="year"></span> Harisoni Ami Lohay. All rights reserved.</p>
+			<ul class="footer-links" aria-label="Footer navigation">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#map">Map</a></li>
+				<li><a href="#cv">CV</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+			<p class="small">Social links: <span class="editable">[EDIT: add LinkedIn / GitHub links when ready]</span></p>
+		</div>
+	</footer>
+
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+					integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+	<script src="script.js"></script>
+</body>
+</html>
