@@ -11,9 +11,9 @@
 	 Leave a value as "" to keep the placeholder on the page.
 	 ---------------------------------------------------------- */
 const SITE_CONFIG = {
-	email: "",      // e.g. "name@example.com"
-	linkedin: "",   // e.g. "https://www.linkedin.com/in/your-profile"
-	github: ""      // e.g. "https://github.com/your-username"
+	email: "lohayharisoni445@gmail.com",
+	linkedin: "https://www.linkedin.com/in/harisoni-lohay-143839446",
+	github: "https://github.com/hson40722-ship-it"
 };
 
 // Add real GeoJSON files here later (put files in assets/maps/).
@@ -29,24 +29,175 @@ const GEOJSON_LAYERS = [];
 	 ---------------------------------------------------------- */
 const PROJECTS = [
 	{
-		id: "lulc",
-		title: "Land Use and Land Cover Mapping",
-		category: "Land Use / Land Cover",
-		status: "placeholder",
-		tools: ["Landsat", "QGIS", "Google Earth Engine"],
-		summary: "Placeholder: classification of land use and land cover from satellite imagery.",
-		image: "",
+		id: "urban-monitoring",
+		title: "Urban Expansion Monitoring, Mbeya City (2000 to 2025)",
+		category: "Urban",
+		status: "progress",
+		tools: ["Google Earth Engine", "Landsat", "Random Forest", "QGIS", "Leaflet"],
+		summary: "Tracks where Mbeya City has grown, in which direction, and how land surface temperature and vegetation changed. Results are preliminary.",
+		image: "assets/maps/mbeya_card.jpg",
 		page: "",
-		studyArea: "",
+		studyArea: "Mbeya City, Tanzania, 2000 to 2025.",
 		problem: "",
-		objectives: [],
-		data: [],
-		methods: [],
-		figures: [],   // e.g. [{ src: "assets/maps/lulc.png", alt: "Land cover map of ...", caption: "Figure 1 ..." }]
+		objectives: [
+			"Map land cover (built-up, vegetation, cropland/grassland, bare land, water) for 2000, 2010, 2020 and 2025.",
+			"Quantify built-up change for each period.",
+			"Measure the direction of urban expansion in eight sectors around the city center.",
+			"Compare built-up growth with land surface temperature and vegetation (NDVI) change."
+		],
+		data: [
+			"Landsat Collection 2 Tier 1 Level-2 imagery (Landsat 5, 7, 8 and 9), dry-season composites.",
+			"ESA WorldCover 2020, used to create training labels automatically."
+		],
+		methods: [
+			"Dry-season Landsat composites built in Google Earth Engine.",
+			"Random Forest classification of five land-cover classes.",
+			"Built-up change statistics and an eight-direction sector analysis.",
+			"Land-cover map layouts made in QGIS; dashboard built with Leaflet and Chart.js."
+		],
+		figures: [
+			{ src: "assets/maps/mbeya_lulc_2025.jpg", alt: "Land use and land cover map of Mbeya Urban, 2025", caption: "Figure 1. Land use and land cover, Mbeya Urban, 2025." },
+			{ src: "assets/maps/mbeya_lulc_2000.jpg", alt: "Land use and land cover map of Mbeya Urban, 2000", caption: "Figure 2. Land use and land cover, Mbeya Urban, 2000. This map is under review: it maps more built-up land than 2025, which points to classification errors." }
+		],
+		results: "Preliminary. The dashboard shows the figures together with a data quality check. The early-year maps contain classification errors, so growth rates should not be quoted yet.",
+		limitations: "Training labels come from ESA WorldCover 2020, so the 2000 and 2010 maps are the least certain. Agreement with WorldCover is not a true accuracy assessment, which still needs reference points labelled in historical imagery. Temperature and vegetation changes show association with built-up growth, not proven cause.",
+		references: [],
+		links: [{ label: "Open the monitoring dashboard", url: "dashboard.html" }]
+	},
+	{
+		id: "dar-ksat",
+		title: "Soil Hydraulic Conductivity (Ksat) Map of Dar es Salaam",
+		category: "Hydrology",
+		status: "complete",
+		tools: ["Google Earth Engine", "Raster analysis", "Digital cartography"],
+		summary: "A map of saturated hydraulic conductivity (Ksat) for Dar es Salaam, Tanzania, produced in Google Earth Engine.",
+		image: "assets/maps/dar_ksat_map.png",
+		page: "",
+		studyArea: "Dar es Salaam, Tanzania.",
+		problem: "",
+		objectives: ["Map soil hydraulic conductivity (Ksat) across the whole of Dar es Salaam, with a clear legend."],
+		data: ["Global saturated hydraulic conductivity (Ksat) raster, 1 km resolution, 0-30 cm depth (Zenodo record 3934854)."],
+		methods: ["Processed the Ksat raster in Google Earth Engine for the Dar es Salaam study area.", "Exported the final map as a PNG with a legend."],
+		figures: [{ src: "assets/maps/dar_ksat_map.png", alt: "Map of soil hydraulic conductivity (Ksat) in Dar es Salaam, Tanzania", caption: "Figure 1. Soil hydraulic conductivity (Ksat), Dar es Salaam." }],
 		results: "",
 		limitations: "",
 		references: [],
-		links: []      // e.g. [{ label: "Code on GitHub", url: "https://github.com/..." }]
+		links: []
+	},
+	{
+		id: "lulc",
+		title: "Land Use and Land Cover Mapping, Mbeya Urban",
+		category: "Land Use / Land Cover",
+		status: "progress",
+		tools: ["Landsat", "QGIS", "Google Earth Engine", "Random Forest"],
+		summary: "Five-class land-cover maps of Mbeya Urban for 2000, 2010, 2020 and 2025, made as part of the urban monitoring work.",
+		image: "assets/maps/mbeya_lulc_2025.jpg",
+		page: "",
+		studyArea: "Mbeya Urban, Tanzania.",
+		problem: "",
+		objectives: ["Map land use and land cover across Mbeya Urban for four dates, each with a clear legend."],
+		data: ["Landsat Collection 2 Tier 1 Level-2 imagery."],
+		methods: ["Classified Landsat composites with a Random Forest model in Google Earth Engine.", "Exported the maps and laid them out in QGIS with a legend, scale bar and coordinate information."],
+		figures: [
+			{ src: "assets/maps/mbeya_lulc_2000.jpg", alt: "Land use and land cover map of Mbeya Urban, 2000", caption: "Figure 1. Mbeya Urban, 2000 (under review: see the dashboard data quality check)." },
+			{ src: "assets/maps/mbeya_lulc_2010.jpg", alt: "Land use and land cover map of Mbeya Urban, 2010", caption: "Figure 2. Mbeya Urban, 2010." },
+			{ src: "assets/maps/mbeya_lulc_2020.jpg", alt: "Land use and land cover map of Mbeya Urban, 2020", caption: "Figure 3. Mbeya Urban, 2020." },
+			{ src: "assets/maps/mbeya_lulc_2025.jpg", alt: "Land use and land cover map of Mbeya Urban, 2025", caption: "Figure 4. Mbeya Urban, 2025." }
+		],
+		results: "",
+		limitations: "Accuracy has not yet been assessed with independent reference points. The 2000 map shows signs of classification error.",
+		references: [],
+		links: [{ label: "See the maps on the dashboard", url: "dashboard.html#maps" }]
+	},
+	{
+		id: "kilimanjaro-lulc",
+		title: "Mount Kilimanjaro Land Use and Land Cover Change, 2010 to 2025",
+		category: "Land Use / Land Cover",
+		status: "complete",
+		tools: ["Google Earth Engine", "Landsat", "QGIS", "PyQGIS"],
+		summary: "A four-date land-cover comparison map (2010, 2015, 2020, 2025) of Mount Kilimanjaro, Northern Tanzania, from 30 m Landsat imagery.",
+		image: "assets/maps/kilimanjaro_lulc_2010_2025.jpg",
+		page: "",
+		studyArea: "Mount Kilimanjaro, Northern Tanzania.",
+		problem: "",
+		objectives: ["Compare land use and land cover on Mount Kilimanjaro at four dates: 2010, 2015, 2020 and 2025."],
+		data: ["Landsat imagery (USGS), 30 m resolution, processed in Google Earth Engine."],
+		methods: [
+			"Classified land cover into seven classes: forest, agriculture, built-up, grassland, bare land, water, and snow and ice.",
+			"Laid out the four maps in QGIS with a legend, scale bar, north arrow, location map and map information box (UTM Zone 37S, EPSG:32737)."
+		],
+		figures: [{ src: "assets/maps/kilimanjaro_lulc_2010_2025.jpg", alt: "Four land use and land cover maps of Mount Kilimanjaro for 2010, 2015, 2020 and 2025, with legend and location map", caption: "Figure 1. Mount Kilimanjaro land use and land cover change, 2010 to 2025. Map date: 15 November 2026." }],
+		results: "",
+		limitations: "The 2010, 2015 and 2020 maps contain white areas with no data, and the 2020 map shows stripe-shaped gaps, so differences between years should be read with care. No accuracy assessment is reported here.",
+		references: [],
+		links: [{ label: "Open the full-size map", url: "assets/maps/kilimanjaro_lulc_2010_2025_full.png" }]
+	},
+	{
+		id: "mbeya-terrain",
+		title: "Mbeya City Terrain and Drainage Analysis",
+		category: "Hydrology",
+		status: "complete",
+		tools: ["QGIS", "SRTM DEM", "Hillshade", "PyQGIS", "Matplotlib"],
+		summary: "A terrain map of Mbeya City from a 30 m SRTM elevation model, with hypsometric relief, an extracted drainage network, drainage basin boundaries and a 3D block view.",
+		image: "assets/maps/mbeya_terrain_drainage.jpg",
+		page: "",
+		studyArea: "Mbeya City, Tanzania.",
+		problem: "",
+		objectives: ["Show the relief of Mbeya City and how water drains across it."],
+		data: ["SRTM digital elevation model, 30 m resolution."],
+		methods: [
+			"Derived elevation classes, hillshade and terrain visualisation from the DEM.",
+			"Extracted the drainage network and drainage basin boundaries.",
+			"Added a 3D block view from the south with a vertical exaggeration of 3 times.",
+			"Laid out the map in QGIS 3.44 (UTM Zone 36S, EPSG:32736)."
+		],
+		figures: [{ src: "assets/maps/mbeya_terrain_drainage.jpg", alt: "Terrain and drainage map of Mbeya City showing elevation, drainage network, basin boundaries and a 3D block view", caption: "Figure 1. Mbeya City terrain and drainage analysis. Map prepared 15 November 2026." }],
+		results: "The elevation classes on the map legend span about 1,357 m to 2,649 m.",
+		limitations: "The map is based on a 30 m elevation model, so small features are not resolved. Drainage features are shown where available.",
+		references: [],
+		links: [{ label: "Open the full-size map", url: "assets/maps/mbeya_terrain_drainage_full.png" }]
+	},
+	{
+		id: "mbeya-transport",
+		title: "Mbeya City Transportation Network Map",
+		category: "Transportation",
+		status: "complete",
+		tools: ["QGIS", "OpenStreetMap", "Digital cartography"],
+		summary: "A road network map of Mbeya Urban by road class, with the main roads labelled, the urban boundary and a Tanzania location map.",
+		image: "assets/maps/mbeya_transport_network.jpg",
+		page: "",
+		studyArea: "Mbeya City, Mbeya Region, Tanzania.",
+		problem: "",
+		objectives: ["Map the road network of Mbeya Urban by road class."],
+		data: ["OpenStreetMap road data."],
+		methods: [
+			"Grouped roads into major roads (including T1, T8 and T10), secondary roads, tertiary roads and local roads.",
+			"Labelled the main roads and laid out the map in QGIS with a legend, scale bar, north arrow, location map and map information box (UTM Zone 36S, EPSG:32736)."
+		],
+		figures: [{ src: "assets/maps/mbeya_transport_network.jpg", alt: "Road network map of Mbeya City by road class, with the urban boundary and a location map of Tanzania", caption: "Figure 1. Mbeya City transportation network. Map date: 11 November 2026." }],
+		results: "",
+		limitations: "OpenStreetMap is mapped by volunteers, so some roads may be missing or classed differently from official records.",
+		references: [],
+		links: [{ label: "Open the full-size map (large file)", url: "assets/maps/mbeya_transport_network_full.png" }]
+	},
+	{
+		id: "water-mbeya",
+		title: "Water Body Detection, Mbeya Region",
+		category: "Hydrology",
+		status: "complete",
+		tools: ["Random Forest", "Remote sensing imagery"],
+		summary: "Coursework project (GS 227) that detects water bodies in Mbeya Region with a Random Forest classifier.",
+		image: "", page: "",
+		studyArea: "Mbeya Region, Tanzania.",
+		problem: "",
+		objectives: [],
+		data: [],
+		methods: ["Random Forest classification of water bodies."],
+		figures: [],
+		results: "As reported in the coursework: overall accuracy of 76% and a Kappa of 0.72, with mapped water area rising from about 1,781 km² to about 3,306 km² between the two dates studied.",
+		limitations: "",
+		references: [],
+		links: []
 	},
 	{
 		id: "agri-suitability",
@@ -63,22 +214,45 @@ const PROJECTS = [
 		id: "urban-access",
 		title: "Urban Accessibility Analysis",
 		category: "Urban",
-		status: "placeholder",
-		tools: ["QGIS", "Distance analysis", "Network analysis"],
-		summary: "Placeholder: accessibility mapping of services in an urban area.",
+		status: "complete",
+		tools: ["ArcGIS", "QGIS", "Multi-ring buffers"],
+		summary: "Accessibility modelling and multi-ring buffer analysis, part of a team assessment of Kibaha Municipality (GS 224 Project II).",
 		image: "", page: "",
-		studyArea: "", problem: "", objectives: [], data: [], methods: [],
+		studyArea: "Kibaha Municipality, Tanzania.",
+		problem: "",
+		objectives: [],
+		data: [],
+		methods: ["Accessibility modelling and multi-ring buffers.", "Team project of ten members combining GIS, remote sensing and photogrammetry; I presented it at the final defense."],
 		figures: [], results: "", limitations: "", references: [], links: []
 	},
 	{
 		id: "photogrammetry",
 		title: "Photogrammetry and Terrain Modelling",
 		category: "Photogrammetry",
-		status: "placeholder",
-		tools: ["DEM", "DSM", "Orthomosaic"],
-		summary: "Placeholder: terrain and surface models derived from imagery.",
+		status: "complete",
+		tools: ["Agisoft Metashape", "DEM", "DSM", "Orthomosaic"],
+		summary: "UAV imagery processed into terrain and surface models, with a ground control accuracy check (GS 224 Project II).",
 		image: "", page: "",
-		studyArea: "", problem: "", objectives: [], data: [], methods: [],
+		studyArea: "Kibaha Municipality, Tanzania.",
+		problem: "",
+		objectives: [],
+		data: ["UAV imagery."],
+		methods: ["Processed UAV images in Agisoft Metashape into a digital surface model, a digital terrain model and an orthomosaic.", "Analysed ground control point (GCP) accuracy."],
+		figures: [], results: "", limitations: "", references: [], links: []
+	},
+	{
+		id: "ndvi-kongowe",
+		title: "NDVI Trend Analysis, Kongowe Ward (2015 to 2025)",
+		category: "Vegetation",
+		status: "complete",
+		tools: ["Landsat 8", "R", "Mann-Kendall test", "Sen's slope"],
+		summary: "Vegetation trend analysis from Landsat 8 NDVI, tested with regression and the Mann-Kendall test (GS 224 Group 06).",
+		image: "", page: "",
+		studyArea: "Kongowe Ward, Tanzania.",
+		problem: "",
+		objectives: [],
+		data: ["Landsat 8 imagery, 2015 to 2025."],
+		methods: ["NDVI time series from Landsat 8.", "Trend tests in R: ordinary least squares regression, Mann-Kendall and Sen's slope."],
 		figures: [], results: "", limitations: "", references: [], links: []
 	},
 	{
@@ -93,15 +267,22 @@ const PROJECTS = [
 		figures: [], results: "", limitations: "", references: [], links: []
 	},
 	{
-		id: "webgis-db",
-		title: "Spatial Database and Web GIS Development",
+		id: "ubis",
+		title: "Urban Building Information System (UBIS), Kisarawe Ward",
 		category: "Web GIS",
-		status: "placeholder",
-		tools: ["PostgreSQL", "PostGIS", "Leaflet", "JavaScript"],
-		summary: "Placeholder: a spatial database and an interactive web map.",
+		status: "planned",
+		tools: ["PostgreSQL", "PostGIS", "FastAPI", "Leaflet"],
+		summary: "A planned web GIS for managing building records and monitoring urban change from 2018 to 2025.",
 		image: "", page: "",
-		studyArea: "", problem: "", objectives: [], data: [], methods: [],
-		figures: [], results: "", limitations: "", references: [], links: []
+		studyArea: "Kisarawe Ward, Kisarawe District Council, Pwani Region, Tanzania.",
+		problem: "",
+		objectives: ["Manage building records and monitor urban change using open data and satellite imagery only."],
+		data: ["Open datasets and satellite imagery. No verified boundary or official building inventory has been supplied."],
+		methods: [],
+		figures: [],
+		results: "",
+		limitations: "Any demonstration records will be labelled as demonstration data, not real buildings.",
+		references: [], links: []
 	}
 ];
 
@@ -116,8 +297,17 @@ function el(tag, className, text) {
 }
 const PLACEHOLDER_TEXT = "[Placeholder: to be added]";
 
+// Project status: label and badge style
+const STATUS = {
+	complete: { label: "Completed", detail: "Completed", cls: "badge-complete" },
+	progress: { label: "In progress", detail: "In progress: results are preliminary", cls: "badge-progress" },
+	planned: { label: "Planned", detail: "Planned: no results yet", cls: "badge-planned" },
+	placeholder: { label: "Placeholder", detail: "Placeholder: no real results yet", cls: "badge-placeholder" }
+};
+function statusOf(p) { return STATUS[p.status] || STATUS.placeholder; }
+
 function isSafeUrl(url) {
-	return typeof url === "string" && /^(https?:\/\/|\.{0,2}\/|assets\/|projects\/)/i.test(url);
+	return typeof url === "string" && /^(https?:\/\/|\.{0,2}\/|assets\/|projects\/|[\w-]+\.html)/i.test(url);
 }
 
 /* ----------------------------------------------------------
@@ -213,9 +403,7 @@ function renderProjects() {
 		card.appendChild(thumb);
 
 		const body = el("div", "project-body");
-		const isPlaceholder = p.status !== "complete";
-		body.appendChild(el("span", "badge " + (isPlaceholder ? "badge-placeholder" : "badge-complete"),
-			isPlaceholder ? "Placeholder" : "Completed"));
+		body.appendChild(el("span", "badge " + statusOf(p).cls, statusOf(p).label));
 		body.appendChild(el("h3", "", p.title));
 		body.appendChild(el("p", "", p.summary));
 
@@ -255,8 +443,7 @@ function buildDetail(p) {
 	const title = el("h2", "", p.title);
 	title.id = "dlgTitle";
 	box.appendChild(title);
-	box.appendChild(el("span", "badge " + (p.status === "complete" ? "badge-complete" : "badge-placeholder"),
-		p.status === "complete" ? "Completed" : "Placeholder: no real results yet"));
+	box.appendChild(el("span", "badge " + statusOf(p).cls, statusOf(p).detail));
 
 	addTextSection(box, "Study area", p.studyArea);
 	addTextSection(box, "Problem statement", p.problem);
